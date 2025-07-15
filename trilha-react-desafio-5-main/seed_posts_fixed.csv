@@ -1,0 +1,1060 @@
+id,title,description,body,created_at
+550e8400-e29b-41d4-a716-446655440001,"Next.js 15: O Futuro do React Framework","Descubra as novidades revolucionárias do Next.js 15 e como elas impactam o desenvolvimento web moderno","O Next.js 15 trouxe mudanças significativas que revolucionaram o desenvolvimento React. Com o novo App Router estável, Server Components nativos e melhorias substanciais de performance, este framework se consolidou como a escolha principal para aplicações React em produção.
+
+## Principais Novidades:
+
+### App Router Estável
+O novo sistema de roteamento baseado em diretórios oferece uma experiência mais intuitiva e powerful. Com layouts aninhados, loading states automáticos e error boundaries integrados, o desenvolvimento se torna mais eficiente.
+
+### Server Components por Padrão
+Os Server Components permitem renderização no servidor com zero JavaScript no cliente, resultando em bundles menores e carregamento mais rápido das páginas.
+
+### Melhorias de Performance
+- Otimizações automáticas de imagens
+- Bundling inteligente
+- Tree-shaking aprimorado
+- Cache estratégico
+
+## Migração e Compatibilidade
+
+A migração do Pages Router para App Router é gradual e bem documentada. O Next.js 15 mantém compatibilidade total com versões anteriores, permitindo adoção incremental das novas features.
+
+O futuro do desenvolvimento web está aqui, e o Next.js 15 lidera essa evolução com foco em performance, experiência do desenvolvedor e escalabilidade.","2025-07-10 10:00:00"
+550e8400-e29b-41d4-a716-446655440002,"React 18: Concurrent Features e Suspense","Como as novas features concorrentes do React 18 transformam a experiência do usuário","React 18 introduziu conceitos revolucionários que mudaram completamente como pensamos sobre renderização e estado em aplicações React. As Concurrent Features são o coração dessa transformação.
+
+## Concurrent Features Principais:
+
+### Automatic Batching
+O React agora agrupa automaticamente múltiplas atualizações de estado, mesmo em promises, timeouts e eventos nativos, melhorando significativamente a performance.
+
+```javascript
+// Antes: 3 renderizações
+// Agora: 1 renderização apenas
+function handleClick() {
+  setCount(c => c + 1);
+  setFlag(f => !f);
+  setData(newData);
+}
+```
+
+### Suspense para Data Fetching
+O Suspense evoluiu beyond lazy components, agora suportando data fetching com elegância:
+
+```javascript
+function Profile() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <UserData />
+    </Suspense>
+  );
+}
+```
+
+### Transitions
+startTransition permite marcar atualizações como não urgentes, mantendo a UI responsiva:
+
+```javascript
+startTransition(() => {
+  setTab(newTab); // Não urgente
+});
+```
+
+## useDeferredValue Hook
+Permite defer valores que podem ser computacionalmente caros, mantendo a UI fluida.
+
+O React 18 representa um salto qualitativo em performance e experiência do usuário, estabelecendo as bases para o futuro do desenvolvimento frontend.","2025-07-09 14:30:00"
+550e8400-e29b-41d4-a716-446655440003,"Supabase: A Revolução Backend-as-a-Service","Por que o Supabase está se tornando a escolha preferida dos desenvolvedores modernos","Supabase emergiu como uma alternativa open-source poderosa ao Firebase, oferecendo uma suite completa de ferramentas backend com PostgreSQL como fundação.
+
+## Vantagens Estratégicas:
+
+### PostgreSQL Nativo
+Diferente de outros BaaS que usam NoSQL, o Supabase utiliza PostgreSQL completo, oferecendo:
+- Queries SQL complexas
+- Joins eficientes
+- ACID compliance
+- Extensões PostgreSQL
+
+### Row Level Security (RLS)
+Sistema de segurança a nível de linha extremamente granular:
+
+```sql
+CREATE POLICY ""users_own_data"" ON profiles
+  FOR ALL USING (auth.uid() = user_id);
+```
+
+### Real-time Subscriptions
+WebSockets automáticos para qualquer tabela:
+
+```javascript
+const subscription = supabase
+  .from('posts')
+  .on('*', payload => {
+    console.log('Change received!', payload);
+  })
+  .subscribe();
+```
+
+### Edge Functions
+Serverless functions com Deno runtime na edge:
+
+```typescript
+import { serve } from ""https://deno.land/std/http/server.ts""
+
+serve(async (req) => {
+  return new Response(""Hello from the edge!"");
+});
+```
+
+## Ecossistema Open Source
+
+O Supabase não é apenas um produto, é um ecossistema open-source completo que pode ser self-hosted, oferecendo controle total sobre os dados e infraestrutura.
+
+A combinação de facilidade de uso, poder do PostgreSQL e filosofia open-source faz do Supabase a escolha ideal para projetos modernos.","2025-07-08 09:15:00"
+550e8400-e29b-41d4-a716-446655440004,"Tailwind CSS 3.0: Utility-First Revolution","Como o Tailwind CSS redefiniu a forma de estilizar aplicações web","Tailwind CSS revolucionou o desenvolvimento frontend com sua abordagem utility-first, oferecendo um paradigma completamente novo para estilização.
+
+## Filosofia Utility-First:
+
+### Vantagens Fundamentais
+- **Consistency**: Design system integrado
+- **Performance**: CSS otimizado e purged
+- **Maintainability**: Estilos co-localizados
+- **Productivity**: Desenvolvimento mais rápido
+
+### Arbitrary Value Support
+Tailwind 3.0 introduziu suporte a valores arbitrários:
+
+```html
+<div class=""top-[117px] bg-[#1da1f2]"">
+  Custom values on demand
+</div>
+```
+
+### JIT Engine
+O Just-In-Time compiler gera apenas o CSS necessário:
+- Build times instantâneos
+- Tamanho de arquivo otimizado
+- Hot reload ultra-rápido
+
+## Design Tokens Integrados
+
+Sistema de design tokens consistente:
+
+```javascript
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          50: '#eff6ff',
+          500: '#3b82f6',
+          900: '#1e3a8a',
+        }
+      }
+    }
+  }
+}
+```
+
+### Component Extraction
+Para casos complexos, extraction de componentes:
+
+```css
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-500 text-white rounded;
+  }
+}
+```
+
+## Ecosystem e Plugins
+
+Rich ecosystem com plugins oficiais e da comunidade:
+- @tailwindcss/typography
+- @tailwindcss/forms  
+- @tailwindcss/aspect-ratio
+
+Tailwind CSS 3.0 não é apenas uma ferramenta de CSS, é uma nova forma de pensar sobre design e desenvolvimento frontend.","2025-07-07 16:45:00"
+550e8400-e29b-41d4-a716-446655440005,"Clean Code: Princípios Fundamentais para Desenvolvedores","Os princípios atemporais do Clean Code que todo desenvolvedor deve dominar","Clean Code não é apenas sobre sintaxe bonita - é sobre criar software que humanos possam entender, manter e evoluir. Robert C. Martin definiu princípios que transcendem linguagens e frameworks.
+
+## Princípios Fundamentais:
+
+### 1. Nomes Revelam Intenção
+```javascript
+// ❌ Ruim
+const d = new Date();
+const u = users.filter(x => x.a > 18);
+
+// ✅ Bom  
+const createdDate = new Date();
+const adultUsers = users.filter(user => user.age > 18);
+```
+
+### 2. Funções Pequenas e Focadas
+Uma função deve fazer apenas uma coisa e fazê-la bem:
+
+```javascript
+// ❌ Função faz muitas coisas
+function processUser(userData) {
+  // valida dados
+  // salva no banco
+  // envia email
+  // atualiza cache
+}
+
+// ✅ Funções focused
+function validateUserData(userData) { /* ... */ }
+function saveUser(user) { /* ... */ }
+function sendWelcomeEmail(user) { /* ... */ }
+function updateUserCache(user) { /* ... */ }
+```
+
+### 3. Evite Comentários Desnecessários
+```javascript
+// ❌ Comentário redundante
+// Incrementa i em 1
+i++;
+
+// ✅ Código auto-explicativo
+function calculateUserDiscount(user) {
+  return user.isPremium ? PREMIUM_DISCOUNT : STANDARD_DISCOUNT;
+}
+```
+
+## SOLID Principles:
+
+### Single Responsibility Principle (SRP)
+Cada classe deve ter apenas um motivo para mudar.
+
+### Open/Closed Principle (OCP)  
+Software deve ser aberto para extensão, fechado para modificação.
+
+### Liskov Substitution Principle (LSP)
+Objetos derivados devem ser substituíveis por suas classes base.
+
+### Interface Segregation Principle (ISP)
+Clientes não devem depender de interfaces que não usam.
+
+### Dependency Inversion Principle (DIP)
+Dependa de abstrações, não de concretions.
+
+## Code Smells Comuns:
+
+- **Long Method**: Métodos muito longos
+- **Large Class**: Classes fazendo muitas coisas  
+- **Duplicate Code**: Código duplicado
+- **Long Parameter List**: Muitos parâmetros
+- **Feature Envy**: Classe usando demais outra classe
+
+Clean Code é um investimento a longo prazo que paga dividendos em maintainability, debugging e team collaboration.","2025-07-06 11:20:00"
+550e8400-e29b-41d4-a716-446655440006,"TypeScript: JavaScript com Superpoderes","Como o TypeScript está transformando o desenvolvimento JavaScript moderno","TypeScript se estabeleceu como a evolução natural do JavaScript, oferecendo type safety sem sacrificar a flexibilidade que amamos no JS.
+
+## Por Que TypeScript?
+
+### Type Safety em Runtime
+```typescript
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+}
+
+function createUser(userData: Omit<User, 'id' | 'createdAt'>): User {
+  return {
+    id: crypto.randomUUID(),
+    createdAt: new Date(),
+    ...userData
+  };
+}
+```
+
+### Intellisense Poderoso
+O tooling do TypeScript oferece autocomplete, refactoring e navigation superiores, aumentando drasticamente a produtividade do desenvolvedor.
+
+### Gradual Adoption
+```typescript
+// Começa simples
+let message = ""Hello World""; // string inferido
+
+// Evolui conforme necessário  
+interface APIResponse<T> {
+  data: T;
+  status: number;
+  message?: string;
+}
+```
+
+## Features Avançadas:
+
+### Utility Types
+TypeScript oferece utility types poderosos:
+
+```typescript
+// Partial - torna todas props opcionais
+type PartialUser = Partial<User>;
+
+// Pick - seleciona propriedades específicas
+type UserSummary = Pick<User, 'id' | 'name'>;
+
+// Omit - exclui propriedades específicas
+type CreateUserData = Omit<User, 'id' | 'createdAt'>;
+```
+
+### Template Literal Types
+```typescript
+type Theme = 'light' | 'dark';
+type Color = 'primary' | 'secondary';
+type Variant = `${Theme}-${Color}`;
+// Result: 'light-primary' | 'light-secondary' | 'dark-primary' | 'dark-secondary'
+```
+
+### Conditional Types
+```typescript
+type ApiResponse<T> = T extends string ? string : T extends number ? number : never;
+```
+
+## Configuração Moderna:
+
+### tsconfig.json Otimizado
+```json
+{
+  ""compilerOptions"": {
+    ""target"": ""ES2022"",
+    ""module"": ""ESNext"",
+    ""moduleResolution"": ""node"",
+    ""strict"": true,
+    ""exactOptionalPropertyTypes"": true,
+    ""noUncheckedIndexedAccess"": true
+  }
+}
+```
+
+TypeScript não é apenas about types - é about developer experience, maintainability e confidence no seu código.","2025-07-05 13:10:00"
+550e8400-e29b-41d4-a716-446655440007,"Git: Workflow Avançado para Teams","Estratégias de Git que todo desenvolvedor sênior deveria conhecer","Git é muito mais que add, commit, push. Para teams de desenvolvimento eficazes, understanding advanced Git workflows é essencial para collaboration e code quality.
+
+## Git Flow vs GitHub Flow:
+
+### Git Flow - Para Releases Complexos
+```bash
+# Feature development
+git checkout -b feature/user-authentication
+git commit -am ""Add login functionality""
+git checkout develop
+git merge feature/user-authentication
+
+# Release preparation  
+git checkout -b release/1.2.0
+git commit -am ""Bump version to 1.2.0""
+git checkout main
+git merge release/1.2.0
+git tag v1.2.0
+```
+
+### GitHub Flow - Para Deployment Contínuo
+```bash
+# Simple feature flow
+git checkout -b feature/fix-login-bug
+git commit -am ""Fix login validation""
+git push origin feature/fix-login-bug
+# Create Pull Request → Merge → Deploy
+```
+
+## Advanced Techniques:
+
+### Interactive Rebase
+```bash
+# Cleanup commit history
+git rebase -i HEAD~3
+
+# Options:
+# pick - use commit  
+# reword - edit commit message
+# edit - edit commit
+# squash - combine with previous
+# drop - remove commit
+```
+
+### Cherry-pick Strategic
+```bash
+# Apply specific commit to another branch
+git cherry-pick 1a2b3c4d
+
+# Cherry-pick range
+git cherry-pick feature-branch~2..feature-branch
+```
+
+### Bisect para Debugging
+```bash
+# Find bug introduction point
+git bisect start
+git bisect bad # current commit has bug
+git bisect good v1.0 # this version was good
+# Git will guide you through binary search
+```
+
+## Commit Message Conventions:
+
+### Conventional Commits
+```bash
+feat: add user authentication system
+fix: resolve login validation issue  
+docs: update API documentation
+style: format code with prettier
+refactor: extract user service
+test: add integration tests
+chore: update dependencies
+```
+
+### Semantic Commit Structure
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+## Hook Automation:
+
+### Pre-commit Hooks
+```bash
+#!/bin/sh
+# .git/hooks/pre-commit
+npm run lint
+npm run test
+npm run build
+```
+
+### Husky + lint-staged
+```json
+{
+  ""husky"": {
+    ""hooks"": {
+      ""pre-commit"": ""lint-staged"",
+      ""commit-msg"": ""commitlint -E HUSKY_GIT_PARAMS""
+    }
+  },
+  ""lint-staged"": {
+    ""*.{js,ts,jsx,tsx}"": [""prettier --write"", ""eslint --fix""]
+  }
+}
+```
+
+## Merge Strategies:
+
+### Squash Merging
+Condensa feature branch em single commit, mantendo main branch history clean.
+
+### Rebase Merging  
+Maintains linear history, ideal para projects que valorizam clean commit history.
+
+Advanced Git workflow não é about complexity - é about enabling teams to work efficiently while maintaining code quality e project history integrity.","2025-07-04 08:30:00"
+550e8400-e29b-41d4-a716-446655440008,"Performance Web: Otimizações Modernas","Técnicas avançadas para otimizar performance em aplicações web modernas","Performance web não é apenas about loading times - é about user experience, engagement e business results. Modern web apps demandam strategies sofisticadas de otimização.
+
+## Core Web Vitals:
+
+### Largest Contentful Paint (LCP)
+Mede quando o maior elemento da página é renderizado:
+
+```javascript
+// Otimização de imagens
+<Image
+  src=""/hero-image.jpg""
+  alt=""Hero""
+  priority // Next.js - carrega imediatamente
+  placeholder=""blur""
+  blurDataURL=""data:image/base64,...""
+/>
+
+// Resource hints
+<link rel=""preload"" href=""/critical.css"" as=""style"">
+<link rel=""prefetch"" href=""/next-page.js"" as=""script"">
+```
+
+### First Input Delay (FID)
+Mede responsividade da página:
+
+```javascript
+// Code splitting para reduzir bundle inicial
+const HeavyComponent = lazy(() => 
+  import('./HeavyComponent').then(module => ({
+    default: module.HeavyComponent
+  }))
+);
+
+// Worker threads para heavy computations
+const worker = new Worker('/fibonacci-worker.js');
+worker.postMessage({ n: 40 });
+```
+
+### Cumulative Layout Shift (CLS)
+Previne mudanças inesperadas de layout:
+
+```css
+/* Reserve espaço para imagens */
+.image-container {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+/* Skeleton loading states */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+```
+
+## Advanced Caching Strategies:
+
+### Service Worker Caching
+```javascript
+// sw.js
+const CACHE_NAME = 'app-v1';
+const urlsToCache = ['/styles.css', '/app.js', '/offline.html'];
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
+  );
+});
+```
+
+### HTTP/2 Server Push
+```javascript
+// Express.js com HTTP/2
+app.get('/', (req, res) => {
+  // Push critical resources
+  res.push('/styles.css');
+  res.push('/app.js');
+  res.render('index');
+});
+```
+
+## Bundle Optimization:
+
+### Tree Shaking Efetivo
+```javascript
+// Import específico em vez de import total
+import { debounce } from 'lodash/debounce'; // ✅
+import _ from 'lodash'; // ❌
+
+// Dynamic imports
+const utils = await import('./utils');
+const result = utils.processData(data);
+```
+
+### Code Splitting Strategies
+```javascript
+// Route-based splitting
+const HomePage = lazy(() => import('./pages/Home'));
+const AboutPage = lazy(() => import('./pages/About'));
+
+// Component-based splitting  
+const Modal = lazy(() => import('./components/Modal'));
+
+// Library splitting
+const Chart = lazy(() => import('./components/Chart'));
+```
+
+## Runtime Performance:
+
+### Virtual Scrolling
+```javascript
+// Para listas grandes
+import { VariableSizeList } from 'react-window';
+
+const VirtualizedList = ({ items }) => (
+  <VariableSizeList
+    height={400}
+    itemCount={items.length}
+    itemSize={index => items[index].height}
+    itemData={items}
+  >
+    {Row}
+  </VariableSizeList>
+);
+```
+
+### Memoization Strategic
+```javascript
+// React.memo para componentes
+const ExpensiveComponent = memo(({ data, config }) => {
+  const processedData = useMemo(() => 
+    processLargeDataset(data), [data]
+  );
+  
+  const expensiveCalculation = useCallback(() => {
+    return computeComplexValue(config);
+  }, [config]);
+  
+  return <div>{/* render */}</div>;
+});
+```
+
+Performance optimization é about finding o balance entre user experience, developer experience e maintenance overhead.","2025-07-03 15:40:00"
+550e8400-e29b-41d4-a716-446655440009,"API Design: RESTful Best Practices","Princípios para criar APIs robustas, escaláveis e developer-friendly","API design é a foundation de qualquer sistema distribuído moderno. Uma API bem projetada facilita integration, improves developer experience e scales gracefully.
+
+## RESTful Principles:
+
+### Resource-Based URLs
+```bash
+# ✅ Bom - substantivos, hierárquicos
+GET /users/123/posts/456/comments
+POST /users/123/posts
+PUT /users/123/posts/456
+DELETE /users/123/posts/456
+
+# ❌ Ruim - verbos nas URLs
+GET /getUser/123
+POST /createPost
+PUT /updatePost/456
+```
+
+### HTTP Methods Semânticos
+```javascript
+// GET - Retrieval (idempotent, cacheable)
+GET /api/users?page=1&limit=10
+
+// POST - Creation (não idempotent)
+POST /api/users
+Content-Type: application/json
+{
+  ""name"": ""John Doe"",
+  ""email"": ""john@example.com""
+}
+
+// PUT - Full update (idempotent)
+PUT /api/users/123
+{
+  ""name"": ""John Smith"",
+  ""email"": ""john.smith@example.com""
+}
+
+// PATCH - Partial update
+PATCH /api/users/123
+{
+  ""email"": ""new.email@example.com""
+}
+
+// DELETE - Removal (idempotent)
+DELETE /api/users/123
+```
+
+## Response Design:
+
+### Consistent Response Structure
+```javascript
+// Success response
+{
+  ""success"": true,
+  ""data"": {
+    ""id"": 123,
+    ""name"": ""John Doe"",
+    ""email"": ""john@example.com""
+  },
+  ""meta"": {
+    ""timestamp"": ""2025-07-15T10:30:00Z"",
+    ""version"": ""v1""
+  }
+}
+
+// Error response
+{
+  ""success"": false,
+  ""error"": {
+    ""code"": ""VALIDATION_ERROR"",
+    ""message"": ""Invalid email format"",
+    ""details"": [
+      {
+        ""field"": ""email"",
+        ""message"": ""Must be a valid email address""
+      }
+    ]
+  },
+  ""meta"": {
+    ""timestamp"": ""2025-07-15T10:30:00Z"",
+    ""requestId"": ""req_123456789""
+  }
+}
+```
+
+### Pagination Standards
+```javascript
+// Offset-based pagination
+GET /api/users?page=2&limit=20
+
+{
+  ""data"": [...],
+  ""pagination"": {
+    ""page"": 2,
+    ""limit"": 20,
+    ""total"": 150,
+    ""totalPages"": 8,
+    ""hasNext"": true,
+    ""hasPrev"": true
+  }
+}
+
+// Cursor-based pagination (para datasets grandes)
+GET /api/posts?cursor=eyJpZCI6MTIzfQ&limit=20
+
+{
+  ""data"": [...],
+  ""pagination"": {
+    ""nextCursor"": ""eyJpZCI6MTQ0fQ"",
+    ""hasNext"": true
+  }
+}
+```
+
+## Security Best Practices:
+
+### Authentication & Authorization
+```javascript
+// JWT Authorization header
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+// API Key (para server-to-server)
+X-API-Key: sk_live_51H7yFsABC123...
+
+// Rate limiting headers
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1627846261
+```
+
+### Input Validation
+```javascript
+// Schema-based validation
+const userSchema = {
+  type: 'object',
+  required: ['name', 'email'],
+  properties: {
+    name: {
+      type: 'string',
+      minLength: 2,
+      maxLength: 50
+    },
+    email: {
+      type: 'string',
+      format: 'email'
+    },
+    age: {
+      type: 'integer',
+      minimum: 18,
+      maximum: 120
+    }
+  },
+  additionalProperties: false
+};
+```
+
+## Versioning Strategies:
+
+### URL Versioning
+```bash
+# Major version in URL path
+GET /api/v1/users
+GET /api/v2/users
+
+# Semver in URL  
+GET /api/v1.2/users
+```
+
+### Header Versioning
+```bash
+GET /api/users
+Accept: application/vnd.api+json;version=1
+API-Version: 2023-07-15
+```
+
+## Documentation & Testing:
+
+### OpenAPI Specification
+```yaml
+openapi: 3.0.0
+info:
+  title: User API
+  version: 1.0.0
+paths:
+  /users:
+    get:
+      summary: List users
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Users list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserList'
+```
+
+### Contract Testing
+```javascript
+// API contract tests
+describe('GET /api/users', () => {
+  test('should return users with correct schema', async () => {
+    const response = await request(app).get('/api/users');
+    
+    expect(response.status).toBe(200);
+    expect(response.body).toMatchSchema(userListSchema);
+    expect(response.body.data).toBeArray();
+  });
+});
+```
+
+Great API design é about thinking como seu client developers e providing uma interface que é intuitive, consistent e powerful.","2025-07-02 12:00:00"
+550e8400-e29b-41d4-a716-446655440010,"DevOps: CI/CD com GitHub Actions","Automatização completa do pipeline de desenvolvimento com GitHub Actions","DevOps moderno é about automation, reliability e feedback loops rápidos. GitHub Actions oferece uma platform poderosa para criar pipelines CI/CD robustos e flexíveis.
+
+## Workflow Fundamentals:
+
+### Basic CI Pipeline
+```yaml
+# .github/workflows/ci.yml
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18, 20]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run linting
+        run: npm run lint
+        
+      - name: Run tests
+        run: npm run test:coverage
+        
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage/lcov.info
+```
+
+### Advanced CD Pipeline
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      image-tag: ${{ steps.meta.outputs.tags }}
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        
+      - name: Login to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID }}
+          vercel-project-id: ${{ secrets.PROJECT_ID }}
+          vercel-args: '--prod'
+```
+
+## Security & Secrets:
+
+### Secure Secret Management
+```yaml
+jobs:
+  deploy:
+    steps:
+      - name: Deploy with secrets
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          API_KEY: ${{ secrets.API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        run: |
+          echo ""Deploying with secure configuration""
+          npm run deploy
+```
+
+### Dependency Security Scanning
+```yaml
+- name: Run Snyk to check for vulnerabilities
+  uses: snyk/actions/node@master
+  env:
+    SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  with:
+    args: --severity-threshold=high
+```
+
+## Advanced Patterns:
+
+### Conditional Workflows
+```yaml
+jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      frontend: ${{ steps.changes.outputs.frontend }}
+      backend: ${{ steps.changes.outputs.backend }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            frontend:
+              - 'frontend/**'
+            backend:
+              - 'backend/**'
+              
+  test-frontend:
+    needs: check-changes
+    if: needs.check-changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test frontend
+        run: npm run test:frontend
+```
+
+### Parallel Jobs with Dependencies
+```yaml
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps: [...]
+    
+  test:
+    runs-on: ubuntu-latest
+    steps: [...]
+    
+  build:
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    steps: [...]
+    
+  deploy-staging:
+    needs: build
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    steps: [...]
+    
+  deploy-production:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps: [...]
+```
+
+## Monitoring & Notifications:
+
+### Slack Integration
+```yaml
+- name: Notify deployment success
+  if: success()
+  uses: rtCamp/action-slack-notify@v2
+  env:
+    SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+    SLACK_CHANNEL: '#deployments'
+    SLACK_COLOR: good
+    SLACK_MESSAGE: |
+      🚀 Successfully deployed to production
+      Commit: ${{ github.sha }}
+      Author: ${{ github.actor }}
+```
+
+### Custom Actions
+```yaml
+# .github/actions/setup-project/action.yml
+name: 'Setup Project'
+description: 'Setup Node.js project with caching'
+inputs:
+  node-version:
+    description: 'Node.js version'
+    required: true
+    default: '18'
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: 'npm'
+    - run: npm ci
+      shell: bash
+    - run: npm run build
+      shell: bash
+```
+
+GitHub Actions transforms development workflow from manual, error-prone processes para automated, reliable pipelines que improve code quality e accelerate delivery.","2025-07-01 17:20:00"

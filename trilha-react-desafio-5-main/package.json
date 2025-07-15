@@ -27,6 +27,7 @@
     "prepare": "npm run lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@mapbox/rehype-prism": "^0.8.0",
     "@netlify/plugin-nextjs": "4.14",
     "@tailwindcss/typography": "^0.5.0",
